@@ -1,15 +1,30 @@
 nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 120px;
-  position: fixed;
-  top : 0;
-  right : 0;
-  left: 0;
-  z-index: 1000;
+  width: 100vw;
   background-color: #4056A1;
   color: #FFFFFF;
-  padding: 1.5em;
- }
+  padding-inline: 1.5em;
+  z-index: 1;
+}
 
- nav span {
-  font-family: 'Bungee', cursive, sans-serif;
- } 
+nav span {
+  font-family: 'Bungee';
+  padding-top: 1.5em;
+}
+.write-new {
+  display: flex;
+  flex-flow: column wrap;
+  margin: .7em;
+}
+.new-tweet {
+  font-size: .7em;
+  margin-bottom: 0;
+}
+.icon {
+  align-self: center;
+  color: rgb(184, 49, 49);
+  font-size: medium;
+} 
