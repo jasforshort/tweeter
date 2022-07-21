@@ -1,0 +1,36 @@
+section.new-tweet {
+  margin-bottom: 2em;
+}
+#tweet-text {
+  display: block;
+  background: none;
+  height: 1.5em;
+  line-height: 0.9em;
+  margin: 0.75em 0 1em 0;
+  padding: 0 0 10px 0;
+  border: none;
+  border-bottom: solid black 2px;
+  width: 100%;
+  resize: none;
+}
+#tweet-text:focus-visible {
+  outline: none;
+}
+.tweet-btn {
+  border-radius: 0;
+  background-color: #4152A1;
+  border: none;
+  color: #ffffff;
+  font-size: .75em;
+  text-align: center;
+  cursor: pointer;
+}
+.tweet-btn-ctr {
+  display: flex;
+  justify-content: space-between;
+  margin:  0.5em;
+}
+
+.tweet-post-label {
+  font-weight: 700;
+} 

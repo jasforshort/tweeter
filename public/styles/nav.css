@@ -1,30 +1,25 @@
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 120px;
-  width: 100vw;
+  width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
-  padding-inline: 1.5em;
-  z-index: 1;
-}
-
-nav span {
-  font-family: 'Bungee';
-  padding-top: 1.5em;
-}
-.write-new {
   display: flex;
-  flex-flow: column wrap;
-  margin: .7em;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 1.5em 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-.new-tweet {
-  font-size: .7em;
-  margin-bottom: 0;
+nav .logo {
+  font-family: 'Bungee', sans-serif; /* LOGO ONLY (Bungee) */
+  font-size: 34px;
 }
-.icon {
-  align-self: center;
-  color: rgb(184, 49, 49);
-  font-size: medium;
-} 
+.flex-container-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.red-icon {
+  color: red;
+}
