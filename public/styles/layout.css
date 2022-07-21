@@ -24,7 +24,6 @@ body {
 main.container {
   width: 90%;
   height: auto;
-  margin: 0 5% 0 5%;
   margin: 1em 5% 0 5%;
   overflow: hidden;
 }
