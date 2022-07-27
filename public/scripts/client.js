@@ -30,7 +30,6 @@ const createTweetElement = (data) => {
 };
 
 // Loops through tweet database object, uses createTweetElement() to generate an article
-
 const renderTweets = (data) => {
   for (let i = data.length - 1; i >= 0; i--) {
     const newTweet = createTweetElement(data[i]);
@@ -38,15 +37,13 @@ const renderTweets = (data) => {
   }
 };
 
-// renders the tweet as data
-
+// Renders the tweet as data
 const renderTweet = (data) => {
   const newTweet = createTweetElement(data);
   $( '#tweets-container' ).prepend(newTweet);
 };
 
 // Makes get request to tweets database at /tweets and then render each tweet as an article.
-
 const loadTweets = () => {
   $.get('/tweets').then((data) => {
     renderTweets(data);
@@ -55,7 +52,6 @@ const loadTweets = () => {
 };
  
 // Makes get request to tweets database at /tweets and then renders most recent tweet
-
 const loadNewTweet = () => {
   $.get('/tweets').then((data) => {
     renderTweet(data[data.length - 1]);
@@ -67,7 +63,6 @@ const loadNewTweet = () => {
 $( document ).ready(function() {
 
   // Get tweets in database on page load
-
   loadTweets();
   $( '.new-tweet form' ).submit(function(event) {
     event.preventDefault();
