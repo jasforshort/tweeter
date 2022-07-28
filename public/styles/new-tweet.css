@@ -24,6 +24,7 @@ section.new-tweet {
   font-size: .75em;
   text-align: center;
   cursor: pointer;
+  font-family: 'Bungee', sans-serif;
 }
 .tweet-btn-ctr {
   display: flex;
