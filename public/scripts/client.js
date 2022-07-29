@@ -67,6 +67,19 @@ const escape = function (str) {
   return div.innerHTML;
 };
 
+// Error handling
+const newTweetError = (message) => {
+  $( '#new-tweet-err-msg' ).text(message);
+  $( '#new-tweet-error' ).show();
+  $( '#tweet-text' ).focus();
+};
+
+// Hides the error handling
+const closeNewTweetError = () => {
+  $( '#new-tweet-error' ).hide();
+  $( '#new-tweet-err-msg' ).text('');
+};
+
 $(document).ready(function () {
 
   // Get tweets in database on page load
@@ -77,17 +90,18 @@ $(document).ready(function () {
     const charCount = Number($('output.counter').val());
     // No characters in form
     if (charCount === EMPTY_TWEET_CHAR_COUNT) {
-      alert("Please enter a tweet before tweeting!");
+      newTweetError('Please enter a tweet before tweeting!');
       return;
       // Max char count in form
     } else if (charCount < MAX_TWEET_CHAR_COUNT) {
-      alert("Please keep tweet within 140 characters in length!");
+      newTweetError('Please keep tweet within 140 characters in length!')
       return;
     }
 
     // If char count is satisfied post the tweet to the database
     $.post('/tweets/', tweetData).then(() => {
       loadNewTweet();
+      closeNewTweetError();
     });
   });
 

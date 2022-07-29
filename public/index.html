@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css">
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
   <link rel="stylesheet" href="/styles/display-tweets.css" type="text/css"/>
+  <link rel="stylesheet" href="/styles/new-tweet-error.css" type="text/css"/>
+  <link rel="stylesheet" href="/styles/media-queries.css" type="text/css"/>
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -45,7 +47,7 @@
     </div>
   </nav>
   <header class="profile flex-container-col">
-    <div>
+    <div class="profile-img-wrapper">
         <img src="/images/profile-hex.png"> 
     </div>
     <br>
@@ -57,6 +59,12 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <section id="new-tweet-error">
+        <div class="error-container flex-container-row">
+          <i class="text-red fas fa-exclamation-circle"></i>
+          <p id="new-tweet-err-msg" class="text-red"></p>
+        </div>
+      </section>
       <form method="POST" action="/tweets/">
         <label class="tweet-post-label" for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text" ></textarea>
@@ -66,7 +74,7 @@
         </div>
       </form>
     </section>
-    <section id="tweet-container">
+    <section id="tweets-container">
     </section>
   </main>
   <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
