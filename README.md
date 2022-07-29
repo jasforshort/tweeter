@@ -6,8 +6,13 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
+Large Display Screenshot
 !["Screenshot of page on large display"](./docs/tweet-mainpage.png)
+
+Small Display Screenshot
 !["Screenshot of page on small display"](./docs/tweet-box.png)
+
+Small Display Screenshot with list of tweets
 !["Screenshot of page on small display of tweet list"](./docs/tweet-list.png)
 
 ## Getting Started
