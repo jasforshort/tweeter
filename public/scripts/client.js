@@ -14,7 +14,7 @@ const createTweetElement = (data) => {
                       <p class="handle">${data.user.handle}</p>
                     </header>
                     <section class="tweet-content">
-                      <p>${data.content.text}</p>
+                    <p>${escape(data.content.text)}</p>
                     </section>
                     <footer>
                       <p class="time-created">${timeago.format(data.created_at)}</p>
@@ -33,46 +33,53 @@ const createTweetElement = (data) => {
 const renderTweets = (data) => {
   for (let i = data.length - 1; i >= 0; i--) {
     const newTweet = createTweetElement(data[i]);
-    $( '#tweets-container' ).append(newTweet);
+    $('#tweets-container').append(newTweet);
   }
 };
 
 // Renders the tweet as data
 const renderTweet = (data) => {
   const newTweet = createTweetElement(data);
-  $( '#tweets-container' ).prepend(newTweet);
+  $('#tweets-container').prepend(newTweet);
 };
 
 // Makes get request to tweets database at /tweets and then render each tweet as an article.
 const loadTweets = () => {
   $.get('/tweets').then((data) => {
     renderTweets(data);
-    $( '#tweet-text' ).val('');
+    $('#tweet-text').val('');
   });
 };
- 
+
 // Makes get request to tweets database at /tweets and then renders most recent tweet
 const loadNewTweet = () => {
   $.get('/tweets').then((data) => {
     renderTweet(data[data.length - 1]);
-    $( '#tweet-text' ).val('');
-    $( 'output.counter' ).val(140);
+    $('#tweet-text').val('');
+    $('output.counter').val(140);
   });
 };
 
-$( document ).ready(function() {
+// Function to escape the string
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+$(document).ready(function () {
 
   // Get tweets in database on page load
   loadTweets();
-  $( '.new-tweet form' ).submit(function(event) {
+  $('.new-tweet form').submit(function (event) {
     event.preventDefault();
-    const tweetData = $( this ).serialize();
-    const charCount = Number($( 'output.counter' ).val());
+    const tweetData = $(this).serialize();
+    const charCount = Number($('output.counter').val());
     // No characters in form
     if (charCount === EMPTY_TWEET_CHAR_COUNT) {
       alert("Please enter a tweet before tweeting!");
       return;
-    // Max char count in form
+      // Max char count in form
     } else if (charCount < MAX_TWEET_CHAR_COUNT) {
       alert("Please keep tweet within 140 characters in length!");
       return;
